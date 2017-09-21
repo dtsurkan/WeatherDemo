@@ -17,6 +17,10 @@
 		942100101F73F36E0009FBFA /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9421000A1F73F36E0009FBFA /* SettingsRouter.swift */; };
 		942100111F73F36E0009FBFA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9421000B1F73F36E0009FBFA /* SettingsViewController.swift */; };
 		942100121F73F36E0009FBFA /* SettingsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9421000C1F73F36E0009FBFA /* SettingsWorker.swift */; };
+		942100141F73F5870009FBFA /* ForecastSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942100131F73F5870009FBFA /* ForecastSectionController.swift */; };
+		942100161F73F5D50009FBFA /* ForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942100151F73F5D50009FBFA /* ForecastCell.swift */; };
+		942100181F73F6290009FBFA /* ForecastHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942100171F73F6290009FBFA /* ForecastHeaderView.swift */; };
+		9421001A1F73F64B0009FBFA /* ForecastHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 942100191F73F64B0009FBFA /* ForecastHeaderView.xib */; };
 		9421FFF51F73B5470009FBFA /* SpinnerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9421FFF41F73B5470009FBFA /* SpinnerCell.swift */; };
 		9421FFFA1F73B6B10009FBFA /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9421FFF91F73B6B10009FBFA /* LocationService.swift */; };
 		9421FFFC1F73B7920009FBFA /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9421FFFB1F73B7920009FBFA /* AppDependencies.swift */; };
@@ -46,6 +50,10 @@
 		9421000A1F73F36E0009FBFA /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
 		9421000B1F73F36E0009FBFA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		9421000C1F73F36E0009FBFA /* SettingsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWorker.swift; sourceTree = "<group>"; };
+		942100131F73F5870009FBFA /* ForecastSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastSectionController.swift; sourceTree = "<group>"; };
+		942100151F73F5D50009FBFA /* ForecastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCell.swift; sourceTree = "<group>"; };
+		942100171F73F6290009FBFA /* ForecastHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastHeaderView.swift; sourceTree = "<group>"; };
+		942100191F73F64B0009FBFA /* ForecastHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForecastHeaderView.xib; sourceTree = "<group>"; };
 		9421FFF41F73B5470009FBFA /* SpinnerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerCell.swift; sourceTree = "<group>"; };
 		9421FFF91F73B6B10009FBFA /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		9421FFFB1F73B7920009FBFA /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
@@ -90,6 +98,9 @@
 			isa = PBXGroup;
 			children = (
 				9421FFF41F73B5470009FBFA /* SpinnerCell.swift */,
+				942100151F73F5D50009FBFA /* ForecastCell.swift */,
+				942100171F73F6290009FBFA /* ForecastHeaderView.swift */,
+				942100191F73F64B0009FBFA /* ForecastHeaderView.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -199,6 +210,7 @@
 		94A2C4531F73AC04003450CA /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				942100131F73F5870009FBFA /* ForecastSectionController.swift */,
 				94A2C4551F73AFC0003450CA /* MainInteractor.swift */,
 				94A2C4561F73AFC0003450CA /* MainModels.swift */,
 				94A2C4571F73AFC0003450CA /* MainPresenter.swift */,
@@ -302,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94A2C4501F73ABAC003450CA /* Info.plist in Resources */,
+				9421001A1F73F64B0009FBFA /* ForecastHeaderView.xib in Resources */,
 				94A2C44F1F73ABAC003450CA /* Main.storyboard in Resources */,
 				94A2C44D1F73ABAC003450CA /* Assets.xcassets in Resources */,
 				94A2C44E1F73ABAC003450CA /* LaunchScreen.storyboard in Resources */,
@@ -377,6 +390,8 @@
 			files = (
 				94A2C45F1F73AFC0003450CA /* MainViewController.swift in Sources */,
 				942100041F73BFAC0009FBFA /* OpenWeatherAPI.swift in Sources */,
+				942100181F73F6290009FBFA /* ForecastHeaderView.swift in Sources */,
+				942100161F73F5D50009FBFA /* ForecastCell.swift in Sources */,
 				942100121F73F36E0009FBFA /* SettingsWorker.swift in Sources */,
 				942100061F73E6CB0009FBFA /* Forecast.swift in Sources */,
 				942100101F73F36E0009FBFA /* SettingsRouter.swift in Sources */,
@@ -391,6 +406,7 @@
 				9421000D1F73F36E0009FBFA /* SettingsInteractor.swift in Sources */,
 				94A2C44C1F73ABAC003450CA /* AppDelegate.swift in Sources */,
 				94A2C45B1F73AFC0003450CA /* MainInteractor.swift in Sources */,
+				942100141F73F5870009FBFA /* ForecastSectionController.swift in Sources */,
 				9421FFFA1F73B6B10009FBFA /* LocationService.swift in Sources */,
 				9421FFFC1F73B7920009FBFA /* AppDependencies.swift in Sources */,
 				94A2C45E1F73AFC0003450CA /* MainRouter.swift in Sources */,

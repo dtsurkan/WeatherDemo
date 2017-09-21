@@ -122,11 +122,11 @@ class MainViewController: UIViewController, MainDisplayLogic {
 
 extension MainViewController: ListAdapterDataSource {
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-        return [1] as [ListDiffable]
+        return [1, 2, 3, 4, 5] as [ListDiffable]
     }
     
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
-        return spinnerSectionController()
+        return ForecastSectionController()
     }
     
     func emptyView(for listAdapter: ListAdapter) -> UIView? { return nil }
