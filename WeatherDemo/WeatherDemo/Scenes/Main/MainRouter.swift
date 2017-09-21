@@ -13,7 +13,7 @@
 import UIKit
 
 @objc protocol MainRoutingLogic {
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToSettings()
 }
 
 protocol MainDataPassing {
@@ -26,32 +26,23 @@ class MainRouter: NSObject, MainRoutingLogic, MainDataPassing {
   
     // MARK: Routing
   
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
-    //{
-    //  if let segue = segue {
-    //    let destinationVC = segue.destination as! SomewhereViewController
-    //    var destinationDS = destinationVC.router!.dataStore!
-    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //  } else {
-    //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-    //    var destinationDS = destinationVC.router!.dataStore!
-    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-    //  }
-    //}
+    func routeToSettings() {
+        let destinationVC = SettingsViewController()
+        var destinationDS = destinationVC.router!.dataStore!
+        passDataToSettings(source: dataStore!, destination: &destinationDS)
+        navigateToSettings(source: viewController!, destination: destinationVC)
+    }
+    
 
     // MARK: Navigation
   
-    //func navigateToSomewhere(source: MainViewController, destination: SomewhereViewController)
-    //{
-    //  source.show(destination, sender: nil)
-    //}
+    func navigateToSettings(source: MainViewController, destination: SettingsViewController) {
+      source.show(destination, sender: nil)
+    }
   
     // MARK: Passing data
   
-    //func passDataToSomewhere(source: MainDataStore, destination: inout SomewhereDataStore)
-    //{
-    //  destination.name = source.name
-    //}
+    func passDataToSettings(source: MainDataStore, destination: inout SettingsDataStore) {
+      
+    }
 }

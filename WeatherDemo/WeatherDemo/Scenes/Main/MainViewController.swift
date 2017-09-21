@@ -89,6 +89,13 @@ class MainViewController: UIViewController, MainDisplayLogic {
         navigationItem.title = displayedCurrentWeather?.weather.name
     }
     
+    
+    // MARK: - Actions
+    
+    @IBAction func settingsButtonPressed(sender: Any) {
+        router?.routeToSettings()
+    }
+    
     // MARK: - Fetch Weather
   
     func fetchCurrentWeaher(location: CLLocation) {

@@ -47,7 +47,7 @@ struct WeatherMain: Decodable {
     var tempMax: Float?
     var grndLevel: Float?
     var seaLevel: Float?
-    var tempKf: Float
+    var tempKf: Float?
     
     enum CodingKeys : String, CodingKey {
         case temp

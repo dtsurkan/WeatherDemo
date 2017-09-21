@@ -11,6 +11,12 @@
 		942100021F73BF200009FBFA /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942100011F73BF200009FBFA /* Weather.swift */; };
 		942100041F73BFAC0009FBFA /* OpenWeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942100031F73BFAC0009FBFA /* OpenWeatherAPI.swift */; };
 		942100061F73E6CB0009FBFA /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942100051F73E6CB0009FBFA /* Forecast.swift */; };
+		9421000D1F73F36E0009FBFA /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942100071F73F36E0009FBFA /* SettingsInteractor.swift */; };
+		9421000E1F73F36E0009FBFA /* SettingsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942100081F73F36E0009FBFA /* SettingsModels.swift */; };
+		9421000F1F73F36E0009FBFA /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942100091F73F36E0009FBFA /* SettingsPresenter.swift */; };
+		942100101F73F36E0009FBFA /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9421000A1F73F36E0009FBFA /* SettingsRouter.swift */; };
+		942100111F73F36E0009FBFA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9421000B1F73F36E0009FBFA /* SettingsViewController.swift */; };
+		942100121F73F36E0009FBFA /* SettingsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9421000C1F73F36E0009FBFA /* SettingsWorker.swift */; };
 		9421FFF51F73B5470009FBFA /* SpinnerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9421FFF41F73B5470009FBFA /* SpinnerCell.swift */; };
 		9421FFFA1F73B6B10009FBFA /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9421FFF91F73B6B10009FBFA /* LocationService.swift */; };
 		9421FFFC1F73B7920009FBFA /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9421FFFB1F73B7920009FBFA /* AppDependencies.swift */; };
@@ -34,6 +40,12 @@
 		942100011F73BF200009FBFA /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		942100031F73BFAC0009FBFA /* OpenWeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherAPI.swift; sourceTree = "<group>"; };
 		942100051F73E6CB0009FBFA /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
+		942100071F73F36E0009FBFA /* SettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
+		942100081F73F36E0009FBFA /* SettingsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModels.swift; sourceTree = "<group>"; };
+		942100091F73F36E0009FBFA /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
+		9421000A1F73F36E0009FBFA /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
+		9421000B1F73F36E0009FBFA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		9421000C1F73F36E0009FBFA /* SettingsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWorker.swift; sourceTree = "<group>"; };
 		9421FFF41F73B5470009FBFA /* SpinnerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerCell.swift; sourceTree = "<group>"; };
 		9421FFF91F73B6B10009FBFA /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		9421FFFB1F73B7920009FBFA /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
@@ -200,6 +212,12 @@
 		94A2C4541F73AC04003450CA /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				942100071F73F36E0009FBFA /* SettingsInteractor.swift */,
+				942100081F73F36E0009FBFA /* SettingsModels.swift */,
+				942100091F73F36E0009FBFA /* SettingsPresenter.swift */,
+				9421000A1F73F36E0009FBFA /* SettingsRouter.swift */,
+				9421000B1F73F36E0009FBFA /* SettingsViewController.swift */,
+				9421000C1F73F36E0009FBFA /* SettingsWorker.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -359,12 +377,18 @@
 			files = (
 				94A2C45F1F73AFC0003450CA /* MainViewController.swift in Sources */,
 				942100041F73BFAC0009FBFA /* OpenWeatherAPI.swift in Sources */,
+				942100121F73F36E0009FBFA /* SettingsWorker.swift in Sources */,
 				942100061F73E6CB0009FBFA /* Forecast.swift in Sources */,
+				942100101F73F36E0009FBFA /* SettingsRouter.swift in Sources */,
+				9421000F1F73F36E0009FBFA /* SettingsPresenter.swift in Sources */,
+				942100111F73F36E0009FBFA /* SettingsViewController.swift in Sources */,
 				94A2C45D1F73AFC0003450CA /* MainPresenter.swift in Sources */,
+				9421000E1F73F36E0009FBFA /* SettingsModels.swift in Sources */,
 				94A2C4601F73AFC0003450CA /* MainWorker.swift in Sources */,
 				9421FFF51F73B5470009FBFA /* SpinnerCell.swift in Sources */,
 				942100021F73BF200009FBFA /* Weather.swift in Sources */,
 				94A2C45C1F73AFC0003450CA /* MainModels.swift in Sources */,
+				9421000D1F73F36E0009FBFA /* SettingsInteractor.swift in Sources */,
 				94A2C44C1F73ABAC003450CA /* AppDelegate.swift in Sources */,
 				94A2C45B1F73AFC0003450CA /* MainInteractor.swift in Sources */,
 				9421FFFA1F73B6B10009FBFA /* LocationService.swift in Sources */,

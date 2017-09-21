@@ -58,7 +58,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="jAF-fc-ERv"/>
+                    <navigationItem key="navigationItem" id="jAF-fc-ERv">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="AE9-tA-Ikr">
+                            <connections>
+                                <action selector="settingsButtonPressedWithSender:" destination="BYZ-38-t0r" id="T1u-Jl-rmi"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="31r-EK-lco" id="eJg-5q-scd"/>
                         <outlet property="headerView" destination="1gI-Sc-OwC" id="3HR-el-jfv"/>
