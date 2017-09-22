@@ -80,9 +80,9 @@ final class ForecastCell: UICollectionViewCell {
         time.text = item?.time
         let appSettings = AppSettings()
         if !appSettings.isImperialUnit {
-            weatherData.text = (item?.weather.first?.main)! + " " + kelvinToCelsious(temp: item?.main.temp)
+            weatherData.text = NSLocalizedString((item?.weather.first?.main)!, comment: "") + " " + kelvinToCelsious(temp: item?.main.temp)
         } else {
-            weatherData.text = (item?.weather.first?.main)! + " " + kelvin(temp: item?.main.temp)
+            weatherData.text = NSLocalizedString((item?.weather.first?.main)!, comment: "")  + " " + kelvin(temp: item?.main.temp)
         }
         
     }
