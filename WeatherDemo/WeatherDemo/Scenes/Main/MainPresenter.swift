@@ -31,13 +31,30 @@ class MainPresenter: MainPresentationLogic {
     
     func presentForecast(response: Main.Forecast.Response) {
         var displayedForecasts: [Main.Forecast.ViewModel.DisplayedForecast] = []
-//        for weather in response.forecast! {
-//            let displayedForecast = Main.Forecast.ViewModel.DisplayedForecast(id: weather.id, forecast: weather)
-//            displayedForecasts.append(displayedForecast)
-//        }
-//        let viewModel = Main.Forecast.ViewModel(displayedForecast: displayedForecasts)
-//        viewController?.displayForecast(viewModel: viewModel)
+        if let forecast = response.forecast {
+            let list = forecast.list
+            
+            let datesArray = list.flatMap { $0.dayName as? String}
+            var dict = [String: [ForecastItem]]()
+            datesArray.forEach {
+                let dateKey = $0
+                let filteredArray = list.filter { $0.dayName == dateKey }
+                dict[$0] = filteredArray
+            }
+            
+            for item in dict {
+                let displayedForecast = Main.Forecast.ViewModel.DisplayedForecast(dayName: item.key, dayNumber: item.key, forecast: item.value)
+                displayedForecasts.append(displayedForecast)
+            }
+            
+            let sortedForecasts = displayedForecasts.sorted(by: { $0.dayNumber < $1.dayNumber })
+            let viewModel = Main.Forecast.ViewModel(displayedForecast: sortedForecasts)
+            viewController?.displayForecast(viewModel: viewModel)
+        }
+
     }
+    
+    
     
     func presentError(response: Main.CurrentWeaher.Response) {
         debugPrint(response.errorDescription!)

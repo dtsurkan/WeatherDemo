@@ -24,7 +24,8 @@ class MainViewController: UIViewController, MainDisplayLogic {
     var router: (NSObjectProtocol & MainRoutingLogic & MainDataPassing)?
     var displayedCurrentWeather: Main.CurrentWeaher.ViewModel.DisplayedWeather?
     var displayedForecast: [Main.Forecast.ViewModel.DisplayedForecast] = []
-    
+    var loading = true
+    let spinToken = "spinner"
     lazy var adapter: ListAdapter = {
         return ListAdapter(updater: ListAdapterUpdater(), viewController: self)
     }()
@@ -116,6 +117,10 @@ class MainViewController: UIViewController, MainDisplayLogic {
     
     func displayForecast(viewModel: Main.Forecast.ViewModel) {
         displayedForecast = viewModel.displayedForecast
+        loading = false
+        DispatchQueue.main.async {
+            self.adapter.performUpdates(animated: true)
+        }
     }
 }
 
@@ -123,11 +128,18 @@ class MainViewController: UIViewController, MainDisplayLogic {
 
 extension MainViewController: ListAdapterDataSource {
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-        return [1, 2, 3, 4, 5] as [ListDiffable]
+        var objects = displayedForecast as [ListDiffable]
+        
+        if loading {
+            objects.append(spinToken as ListDiffable)
+        }
+        return objects
     }
     
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
-        return ForecastSectionController()
+        if let obj = object as? String, obj == spinToken {
+            return spinnerSectionController()
+        } else {  return ForecastSectionController() }
     }
     
     func emptyView(for listAdapter: ListAdapter) -> UIView? { return nil }

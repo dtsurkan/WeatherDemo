@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PINRemoteImage
 
 final class ForecastCell: UICollectionViewCell {
     
@@ -44,6 +45,8 @@ final class ForecastCell: UICollectionViewCell {
         return label
     }()
     
+    // MARK: - Init
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.layer.addSublayer(separator)
@@ -54,6 +57,8 @@ final class ForecastCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - View
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         let bounds = contentView.bounds
@@ -62,12 +67,17 @@ final class ForecastCell: UICollectionViewCell {
         separator.frame = CGRect(x: left, y: bounds.height - height, width: bounds.width - left, height: height)
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        cloudsImageView.image = nil
+    }
+    
+    // MARK: - Public methods
+    
     func fillWithForecastItem(item: ForecastItem?) {
-        cloudsImageView.image = UIImage(named: "Cloud.png")
-        time.text = "6:00 AM"
-        weatherData.text = "Clouds, 10 C"
-        // set cloudsImageView image
-        // set time
-        // set temp
+        let imageURL = URL(string: openWeatherIconURL+(item?.weather.first?.icon)! + ".png" )
+        cloudsImageView.pin_setImage(from: imageURL)
+        weatherData.text = (item?.weather.first?.main)! + " " + kelvinToCelsious(temp: item?.main.temp)
+        time.text = item?.time
     }
 }

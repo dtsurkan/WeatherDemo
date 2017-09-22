@@ -12,7 +12,7 @@ let openWeatherIconURL: String = "http://openweathermap.org/img/w/"
 
 func kelvinToCelsious(temp: Float?) -> String {
     if let temp = temp {
-        return String(format: "%.0f C", temp - 273.15)
+        return String(format: "%.0f °C", temp - 273.15)
     }
     return "0"
 }

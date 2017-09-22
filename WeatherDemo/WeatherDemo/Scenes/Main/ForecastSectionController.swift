@@ -11,6 +11,10 @@ import IGListKit
 
 final class ForecastSectionController: ListSectionController, ListSupplementaryViewSource {
     
+    var displayedForecast: Main.Forecast.ViewModel.DisplayedForecast?
+    
+    // MARK: - Inti
+    
     override init() {
         super.init()
         supplementaryViewSource = self
@@ -19,7 +23,7 @@ final class ForecastSectionController: ListSectionController, ListSupplementaryV
     // MARK: - IGListSectionController Overrides
     
     override func numberOfItems() -> Int {
-        return 3
+        return (displayedForecast?.forecast.count)!
     }
     
     override func sizeForItem(at index: Int) -> CGSize {
@@ -30,13 +34,12 @@ final class ForecastSectionController: ListSectionController, ListSupplementaryV
         guard let cell = collectionContext?.dequeueReusableCell(of: ForecastCell.self, for: self, at: index) as? ForecastCell else {
             fatalError()
         }
-        // implement filling
-        cell.fillWithForecastItem(item: nil)
+        cell.fillWithForecastItem(item: displayedForecast?.forecast[index])
         return cell
     }
     
     override func didUpdate(to object: Any) {
-        
+        displayedForecast = object as? Main.Forecast.ViewModel.DisplayedForecast
     }
     
     // MARK: ListSupplementaryViewSource
@@ -53,7 +56,7 @@ final class ForecastSectionController: ListSectionController, ListSupplementaryV
                                                                              at: index) as? ForecastHeaderView else {
                                                                                 fatalError()
         }
-        view.day = "Monday".uppercased()
+        view.day = displayedForecast?.dayName
         return view
     }
     

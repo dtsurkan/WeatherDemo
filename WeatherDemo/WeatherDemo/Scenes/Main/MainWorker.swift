@@ -60,8 +60,10 @@ class MainWorker {
                 let data = moyaResponse.data
                 do {
                     let jsonDecoder = JSONDecoder()
-                    let json = try JSONSerialization.jsonObject(with: data, options: [])
-                    print(json)
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                    dateFormatter.timeZone = TimeZone(identifier: "UTC")
+                    jsonDecoder.dateDecodingStrategy = .formatted(dateFormatter)
                     let forecast = try jsonDecoder.decode(ForecastModel.self, from: data)
                     completionHandler(forecast, nil)
                 } catch {

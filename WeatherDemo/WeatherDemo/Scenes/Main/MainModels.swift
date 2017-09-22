@@ -68,25 +68,28 @@ enum Main {
         
         struct ViewModel {
             class DisplayedForecast: ListDiffable {
-                var id: Int
-                var forecast: ForecastModel
+                var dayName: String
+                var dayNumber: String
+                var forecast: [ForecastItem]
                 
                 // MARK: - Init
                 
-                init(id: Int, forecast: ForecastModel) {
-                    self.id = id
+                init(dayName: String, dayNumber: String, forecast: [ForecastItem]) {
+                    self.dayName = dayName
+                    self.dayNumber = String(dayNumber.last!)
                     self.forecast = forecast
                 }
                 
                 // MARK: - ListDiffable
                 
                 func diffIdentifier() -> NSObjectProtocol {
-                    return id as NSObjectProtocol
+                    return dayName as NSObjectProtocol
                 }
                 
                 func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
                     guard self !== object else { return true }
-                    return false
+                    guard let object = object as? DisplayedForecast else { return false }
+                    return dayNumber == object.dayNumber
                 }
             }
             var displayedForecast: [DisplayedForecast]
