@@ -24,8 +24,10 @@ class MainViewController: UIViewController, MainDisplayLogic {
     var router: (NSObjectProtocol & MainRoutingLogic & MainDataPassing)?
     var displayedCurrentWeather: Main.CurrentWeaher.ViewModel.DisplayedWeather?
     var displayedForecast: [Main.Forecast.ViewModel.DisplayedForecast] = []
+    var lastLocation: CLLocation?
     var loading = true
     let spinToken = "spinner"
+    let refreshControl = UIRefreshControl()
     lazy var adapter: ListAdapter = {
         return ListAdapter(updater: ListAdapterUpdater(), viewController: self)
     }()
@@ -87,11 +89,21 @@ class MainViewController: UIViewController, MainDisplayLogic {
     
     private func configureView() {
         configureCollectionView()
+        configureRefreshControl()
     }
     
     private func configureCollectionView() {
         adapter.collectionView = collectionView
         adapter.dataSource = self
+    }
+    
+    private func configureRefreshControl() {
+        if #available(iOS 10.0, *) {
+            collectionView.refreshControl = refreshControl
+        } else {
+            collectionView.addSubview(refreshControl)
+        }
+        refreshControl.addTarget(self, action: #selector(refreshData(sender:)), for: .valueChanged)
     }
   
     private func updateCurrentWeather() {
@@ -104,6 +116,14 @@ class MainViewController: UIViewController, MainDisplayLogic {
     
     @IBAction func settingsButtonPressed(sender: Any) {
         router?.routeToSettings()
+    }
+    
+    @objc private func refreshData(sender: UIRefreshControl) {
+        refreshControl.beginRefreshing()
+        fetchCurrentWeaher(location: self.lastLocation!)
+        fetchForecast(location: self.lastLocation!)
+        loading = true
+        adapter.performUpdates(animated: true)
     }
     
     // MARK: - Fetch Weather
@@ -121,6 +141,7 @@ class MainViewController: UIViewController, MainDisplayLogic {
     func displayCurrentWeather(viewModel: Main.CurrentWeaher.ViewModel) {
         displayedCurrentWeather = viewModel.displayedWeather
         updateCurrentWeather()
+        refreshControl.endRefreshing()
     }
     
     func displayForecast(viewModel: Main.Forecast.ViewModel) {
@@ -159,6 +180,7 @@ extension MainViewController: ListAdapterDataSource {
 extension MainViewController: LocationServiceDelegate {
     
     func locationDidUpdate(_ service: LocationService, location: CLLocation) {
+        self.lastLocation = location
         DispatchQueue.once(token: "com.dtsurkan.WeatherDemo") {
             self.fetchCurrentWeaher(location: location)
             self.fetchForecast(location: location)
