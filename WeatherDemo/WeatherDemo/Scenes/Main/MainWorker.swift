@@ -61,13 +61,8 @@ class MainWorker {
                 let data = moyaResponse.data
                 do {
                     let jsonDecoder = JSONDecoder()
-//                    let json = try JSONSerialization.jsonObject(with: data, options: [])
-//                    print(json)
-                    
                     let forecast = try jsonDecoder.decode(ForecastModel.self, from: data)
-//                    print(forecast)
                     completionHandler(forecast, nil)
-                    
                 } catch {
                     completionHandler(nil, error)
                 }
