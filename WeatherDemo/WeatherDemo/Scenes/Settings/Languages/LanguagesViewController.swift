@@ -36,7 +36,7 @@ class LanguagesViewController: UIViewController {
     // MARK: - Internal
     
     private func configureView() {
-        navigationItem.title = NSLocalizedString("Select language", comment: "")
+        navigationItem.title = dynamicLocalizableString("Select language")
         view.backgroundColor = UIColor(red: 240/255, green: 239/255, blue: 244/255, alpha: 1)
     }
     

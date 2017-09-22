@@ -12,17 +12,25 @@ class SettingsUnitsCell: UITableViewCell {
 
     lazy var segmentControl: UISegmentedControl = {
         let segment = UISegmentedControl()
-        segment.insertSegment(withTitle: NSLocalizedString("Metric", comment: ""), at: 0, animated: false)
-        segment.insertSegment(withTitle: NSLocalizedString("Imperial", comment: ""), at: 1, animated: false)
+        segment.insertSegment(withTitle: dynamicLocalizableString("Metric"), at: 0, animated: false)
+        segment.insertSegment(withTitle: dynamicLocalizableString("Imperial"), at: 1, animated: false)
         self.contentView.addSubview(segment)
         return segment
     }()
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.accessoryType = .none
         self.selectionStyle = .none
-        // Initialization code
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.localizeUI),
+                                               name: NSNotification.Name(rawValue:DynamicLanguageServiceDidDetectLanguageSwitchNotificationKey),
+                                               object: nil)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -43,6 +51,15 @@ class SettingsUnitsCell: UITableViewCell {
         segmentControl.addTarget(delegate, action: #selector(delegate.segmentDidChange(segment:)), for: .valueChanged)
     }
 
+}
+
+// MARK: - Localizable
+extension SettingsUnitsCell: Localizable {
+    
+    @objc func localizeUI() {
+        segmentControl.setTitle(dynamicLocalizableString("Metric"), forSegmentAt: 0)
+        segmentControl.setTitle(dynamicLocalizableString("Imperial"), forSegmentAt: 1)
+    }
 }
 
 @objc protocol SettingsUnitsCellDelegate {

@@ -23,6 +23,10 @@ class SettingsViewController: UIViewController, SettingsDisplayLogic {
     let tableView = UITableView()
     
     // MARK: Object lifecycle
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
   
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -66,12 +70,17 @@ class SettingsViewController: UIViewController, SettingsDisplayLogic {
         super.viewDidLoad()
         configureView()
         configureTable()
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.localizeUI),
+                                               name: NSNotification.Name(rawValue:DynamicLanguageServiceDidDetectLanguageSwitchNotificationKey),
+                                               object: nil)
     }
     
     // MARK: - Internal
     
     private func configureView() {
-        navigationItem.title = NSLocalizedString("Settings", comment: "")
+        navigationItem.title = dynamicLocalizableString("Settings")
         view.backgroundColor = UIColor(red: 240/255, green: 239/255, blue: 244/255, alpha: 1)
     }
     
@@ -135,7 +144,7 @@ extension SettingsViewController: UITableViewDataSource {
             let cell = UITableViewCell()
             cell.accessoryType = .disclosureIndicator
             cell.selectionStyle = .none
-            cell.textLabel?.text = NSLocalizedString("English", comment: "")
+            cell.textLabel?.text = dynamicLocalizableString("English")
             return cell
         }
         
@@ -149,7 +158,7 @@ extension SettingsViewController: UITableViewDataSource {
         let label = UILabel(frame: CGRect(x: 15, y: 27, width: 200, height: 17))
         label.textColor = UIColor(red: 111/255, green: 110/255, blue: 115/255, alpha: 1)
         label.font = label.font.withSize(14)
-        label.text = section == 0 ? NSLocalizedString("Units", comment: "").uppercased() : NSLocalizedString("Language", comment: "").uppercased()
+        label.text = section == 0 ? dynamicLocalizableString("Units").uppercased() : dynamicLocalizableString("Language").uppercased()
         view.addSubview(label)
         return view
     }
@@ -166,4 +175,13 @@ extension SettingsViewController: UITableViewDataSource {
         return 1
     }
     
+}
+
+// MARK: - Localizable
+extension SettingsViewController: Localizable {
+    
+    @objc func localizeUI() {
+        navigationItem.title = dynamicLocalizableString("Settings")
+        tableView.reloadData()
+    }
 }
