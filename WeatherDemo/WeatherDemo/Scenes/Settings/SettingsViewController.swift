@@ -13,7 +13,7 @@
 import UIKit
 
 protocol SettingsDisplayLogic: class {
-    func displaySomething(viewModel: Settings.Something.ViewModel)
+    
 }
 
 class SettingsViewController: UIViewController, SettingsDisplayLogic {
@@ -89,23 +89,19 @@ class SettingsViewController: UIViewController, SettingsDisplayLogic {
     func showLanguagesList() {
         router?.routeToLanguages()
     }
-  
-    //@IBOutlet weak var nameTextField: UITextField!
-  
-    func doSomething() {
-        let request = Settings.Something.Request()
-        interactor?.doSomething(request: request)
-    }
-  
-    func displaySomething(viewModel: Settings.Something.ViewModel) {
-        //nameTextField.text = viewModel.name
-    }
 }
 
 extension SettingsViewController: SettingsUnitsCellDelegate {
     
     @objc func segmentDidChange(segment: UISegmentedControl) {
-        
+        var appSettings = AppSettings()
+        if segment.selectedSegmentIndex == 0 {
+            appSettings.imperialUnit = false
+            appSettings.metricUnit = true
+        } else {
+            appSettings.imperialUnit = true
+            appSettings.metricUnit = false
+        }
     }
     
 }

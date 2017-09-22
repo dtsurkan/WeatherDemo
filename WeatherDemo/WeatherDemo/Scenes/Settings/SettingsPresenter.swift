@@ -22,7 +22,6 @@ class SettingsPresenter: SettingsPresentationLogic {
     // MARK: Do something
   
     func presentSomething(response: Settings.Something.Response) {
-        let viewModel = Settings.Something.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
+        
     }
 }

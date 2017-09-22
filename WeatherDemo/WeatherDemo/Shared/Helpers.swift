@@ -9,6 +9,7 @@
 import Foundation
 
 let openWeatherIconURL: String = "http://openweathermap.org/img/w/"
+let milesFactor: Float = 0.00062137
 
 func kelvinToCelsious(temp: Float?) -> String {
     if let temp = temp {

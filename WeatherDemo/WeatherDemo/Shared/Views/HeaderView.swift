@@ -24,8 +24,15 @@ class HeaderView: UIView {
     // MARK: - Methods
     
     func fillIn(displayWeather: Main.CurrentWeaher.ViewModel.DisplayedWeather) {
-        windLabel.text = String(displayWeather.weather.wind.speed) + " m/s"
-        visibilityLabel.text = String(displayWeather.weather.visibility) + " m"
+        let appSettings = AppSettings()
+        if !appSettings.isImperialUnit {
+            windLabel.text = String(displayWeather.weather.wind.speed) + " m/s"
+            visibilityLabel.text = String(displayWeather.weather.visibility) + " m"
+        } else {
+            windLabel.text = String(displayWeather.weather.wind.speed * milesFactor) + " miles/h"
+            visibilityLabel.text = String(displayWeather.weather.visibility * milesFactor) + " miles"
+        }
+        
         temparatureLabel.text = kelvinToCelsious(temp: displayWeather.weather.main.temp)
         mistLabel.text = displayWeather.weather.weather.first?.main
         sunriseTimeLabel.text = intervalToTime(interval: displayWeather.weather.sys.sunrise!)

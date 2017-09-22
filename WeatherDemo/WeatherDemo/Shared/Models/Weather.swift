@@ -14,7 +14,7 @@ struct WeatherModel: Decodable {
     var dt: Int
     var cod: Int
     var base: String
-    var visibility: Int
+    var visibility: Float
     var clouds: Clouds
     var rain: Rain?
     var wind: Wind

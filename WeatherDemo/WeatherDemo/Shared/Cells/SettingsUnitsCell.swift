@@ -14,7 +14,6 @@ class SettingsUnitsCell: UITableViewCell {
         let segment = UISegmentedControl()
         segment.insertSegment(withTitle: "Metric", at: 0, animated: false)
         segment.insertSegment(withTitle: "Imperial", at: 1, animated: false)
-        segment.selectedSegmentIndex = 0
         self.contentView.addSubview(segment)
         return segment
     }()
@@ -34,6 +33,9 @@ class SettingsUnitsCell: UITableViewCell {
     
     override func layoutSubviews() {
         segmentControl.frame = CGRect(x: 14, y: 7, width: self.contentView.frame.size.width - 28, height: self.contentView.frame.size.height - 14)
+        let appSettings = AppSettings()
+        if appSettings.isMetricUnit { segmentControl.selectedSegmentIndex = 0
+        } else {segmentControl.selectedSegmentIndex = 1 }
         super.layoutSubviews()
     }
     

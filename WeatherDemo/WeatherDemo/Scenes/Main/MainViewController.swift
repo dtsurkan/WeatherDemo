@@ -71,6 +71,13 @@ class MainViewController: UIViewController, MainDisplayLogic {
         LocationService.shared.delegate = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if displayedCurrentWeather != nil {
+            updateCurrentWeather()
+        }
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
     }
