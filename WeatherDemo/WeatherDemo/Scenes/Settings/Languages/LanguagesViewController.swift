@@ -11,17 +11,26 @@ import UIKit
 class LanguagesViewController: UIViewController {
 
     let tableView = UITableView()
-    let languages = [NSLocalizedString("English", comment: ""),
+    let languages = [dynamicLocalizableString("English"),
                      "German",
                      "Hindi",
                      "Italian",
                      "Japanese",
-                     NSLocalizedString("Russian", comment: "")]
+                     dynamicLocalizableString("Russian")]
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
         configureTable()
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.localizeUI),
+                                               name: NSNotification.Name(rawValue:DynamicLanguageServiceDidDetectLanguageSwitchNotificationKey),
+                                               object: nil)
+
     }
     
     // MARK: - Internal
@@ -29,7 +38,6 @@ class LanguagesViewController: UIViewController {
     private func configureView() {
         navigationItem.title = NSLocalizedString("Select language", comment: "")
         view.backgroundColor = UIColor(red: 240/255, green: 239/255, blue: 244/255, alpha: 1)
-        navigationItem.backBarButtonItem?.title = NSLocalizedString("Settings", comment: "")
     }
     
     private func configureTable() {
@@ -47,7 +55,11 @@ class LanguagesViewController: UIViewController {
     }
 
     func selectLanguage(at index: Int) {
-        // do stuff
+        if index == 0 {
+            LanguageService.service.switchToLanguage(.en)
+        } else if index == 5 {
+            LanguageService.service.switchToLanguage(.ru)
+        }
     }
 
 }
@@ -99,4 +111,14 @@ extension LanguagesViewController: UITableViewDataSource {
         return UIView()
     }
     
+}
+
+// MARK: - Localizable
+extension LanguagesViewController: Localizable {
+    
+    @objc func localizeUI() {
+        navigationItem.title = dynamicLocalizableString("Select language")
+        navigationItem.backBarButtonItem?.title = dynamicLocalizableString("Settings")
+        tableView.reloadData()
+    }
 }

@@ -43,6 +43,7 @@
 		94BAE7E01F7535BF0034D202 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BAE7DF1F7535BF0034D202 /* AppSettings.swift */; };
 		94BAE7E21F7537550034D202 /* SwiftExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BAE7E11F7537550034D202 /* SwiftExtentions.swift */; };
 		94BAE7E71F7540280034D202 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94BAE7E91F7540280034D202 /* Localizable.strings */; };
+		94BAE7ED1F754F620034D202 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BAE7EC1F754F620034D202 /* Localization.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +88,7 @@
 		94BAE7E41F753F920034D202 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		94BAE7E81F7540280034D202 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		94BAE7EA1F75402A0034D202 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		94BAE7EC1F754F620034D202 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		9D727945D06F054E490548D3 /* Pods-WeatherDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherDemo/Pods-WeatherDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,6 +136,7 @@
 		9421FFF61F73B58C0009FBFA /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				94BAE7EB1F754F4D0034D202 /* Localization */,
 				9421FFF81F73B6870009FBFA /* Location */,
 				9421FFF71F73B58C0009FBFA /* Networking */,
 			);
@@ -272,6 +275,14 @@
 				94BAE7D91F74FF680034D202 /* HeaderView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		94BAE7EB1F754F4D0034D202 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				94BAE7EC1F754F620034D202 /* Localization.swift */,
+			);
+			path = Localization;
 			sourceTree = "<group>";
 		};
 		95320ED23AFDACEC98974C3C /* Pods */ = {
@@ -464,6 +475,7 @@
 				942100141F73F5870009FBFA /* ForecastSectionController.swift in Sources */,
 				9421FFFA1F73B6B10009FBFA /* LocationService.swift in Sources */,
 				9421FFFC1F73B7920009FBFA /* AppDependencies.swift in Sources */,
+				94BAE7ED1F754F620034D202 /* Localization.swift in Sources */,
 				94A2C45E1F73AFC0003450CA /* MainRouter.swift in Sources */,
 				9421FFFF1F73BE300009FBFA /* DispatchQueueExtentions.swift in Sources */,
 				94BAE7DA1F74FF680034D202 /* HeaderView.swift in Sources */,

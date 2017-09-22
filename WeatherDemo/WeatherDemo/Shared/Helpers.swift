@@ -32,3 +32,7 @@ func intervalToTime(interval: Int) -> String {
     let dateStr = dayTimePeriodFormatter.string(from: date)
     return dateStr
 }
+
+protocol Localizable {
+    func localizeUI()
+}

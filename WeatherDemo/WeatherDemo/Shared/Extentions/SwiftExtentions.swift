@@ -38,3 +38,14 @@ extension Optional where Wrapped: Occupiable {
         return !isNilOrEmpty
     }
 }
+
+extension String {
+    
+    func truncate(length: Int, trailing: String = "…") -> String {
+        if self.characters.count > length {
+            return String(self.characters.prefix(length)) + trailing
+        } else {
+            return self
+        }
+    }
+}
