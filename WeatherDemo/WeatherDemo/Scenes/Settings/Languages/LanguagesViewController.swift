@@ -11,7 +11,12 @@ import UIKit
 class LanguagesViewController: UIViewController {
 
     let tableView = UITableView()
-    let languages = ["English", "German", "Hindi", "Italian", "Japanese", "Russian"]
+    let languages = [NSLocalizedString("English", comment: ""),
+                     "German",
+                     "Hindi",
+                     "Italian",
+                     "Japanese",
+                     NSLocalizedString("Russian", comment: "")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +27,9 @@ class LanguagesViewController: UIViewController {
     // MARK: - Internal
     
     private func configureView() {
-        navigationItem.title = "Select language"
+        navigationItem.title = NSLocalizedString("Select language", comment: "")
         view.backgroundColor = UIColor(red: 240/255, green: 239/255, blue: 244/255, alpha: 1)
+        navigationItem.backBarButtonItem?.title = NSLocalizedString("Settings", comment: "")
     }
     
     private func configureTable() {

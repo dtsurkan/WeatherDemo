@@ -71,7 +71,7 @@ class SettingsViewController: UIViewController, SettingsDisplayLogic {
     // MARK: - Internal
     
     private func configureView() {
-        navigationItem.title = "Settings"
+        navigationItem.title = NSLocalizedString("Settings", comment: "")
         view.backgroundColor = UIColor(red: 240/255, green: 239/255, blue: 244/255, alpha: 1)
     }
     
@@ -135,7 +135,7 @@ extension SettingsViewController: UITableViewDataSource {
             let cell = UITableViewCell()
             cell.accessoryType = .disclosureIndicator
             cell.selectionStyle = .none
-            cell.textLabel?.text = "English"
+            cell.textLabel?.text = NSLocalizedString("English", comment: "")
             return cell
         }
         
@@ -149,7 +149,7 @@ extension SettingsViewController: UITableViewDataSource {
         let label = UILabel(frame: CGRect(x: 15, y: 27, width: 200, height: 17))
         label.textColor = UIColor(red: 111/255, green: 110/255, blue: 115/255, alpha: 1)
         label.font = label.font.withSize(14)
-        label.text = section == 0 ? "UNITS" : "LANGUAGE"
+        label.text = section == 0 ? NSLocalizedString("Units", comment: "").uppercased() : NSLocalizedString("Language", comment: "").uppercased()
         view.addSubview(label)
         return view
     }

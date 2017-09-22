@@ -5,3 +5,31 @@
   Created by Dima Tsurkan on 9/22/17.
   Copyright © 2017 Dima Tsurkan. All rights reserved.
 */
+
+"miles" = "miles";
+"miles/h" = "miles/h";
+"m/s" = "m/s";
+"m" = "m";
+"Units" = "Units";
+"Metric" = "Metic";
+"Imperial" = "Imperial";
+"Language" = "Language";
+"English" = "English";
+"Settings" = "Settings";
+"Russian" = "Russian";
+
+
+"Sunday" = "Sunday";
+"Monday" = "Monday";
+"Tuesday" = "Tuesday";
+"Wednesday" = "Wednesday";
+"Thursday" = "Thursday";
+"Friday" = "Friday";
+"Saturday" = "Saturday";
+
+
+"Select language" = "Select language";
+
+"Rain" = "Rain";
+"Snow" = "Snow";
+"Extreme" = "Extreme";

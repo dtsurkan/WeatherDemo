@@ -12,8 +12,8 @@ class SettingsUnitsCell: UITableViewCell {
 
     lazy var segmentControl: UISegmentedControl = {
         let segment = UISegmentedControl()
-        segment.insertSegment(withTitle: "Metric", at: 0, animated: false)
-        segment.insertSegment(withTitle: "Imperial", at: 1, animated: false)
+        segment.insertSegment(withTitle: NSLocalizedString("Metric", comment: ""), at: 0, animated: false)
+        segment.insertSegment(withTitle: NSLocalizedString("Imperial", comment: ""), at: 1, animated: false)
         self.contentView.addSubview(segment)
         return segment
     }()

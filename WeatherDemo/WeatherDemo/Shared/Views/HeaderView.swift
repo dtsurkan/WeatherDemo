@@ -26,17 +26,17 @@ class HeaderView: UIView {
     func fillIn(displayWeather: Main.CurrentWeaher.ViewModel.DisplayedWeather) {
         let appSettings = AppSettings()
         if !appSettings.isImperialUnit {
-            windLabel.text = String(displayWeather.weather.wind.speed) + " m/s"
-            visibilityLabel.text = String(displayWeather.weather.visibility) + " m"
+            windLabel.text = String(displayWeather.weather.wind.speed) + " " +  NSLocalizedString("m/s", comment: "")
+            visibilityLabel.text = String(displayWeather.weather.visibility) + " " + NSLocalizedString("m", comment: "")
             temparatureLabel.text = kelvinToCelsious(temp: displayWeather.weather.main.temp)
         } else {
-            windLabel.text = String(displayWeather.weather.wind.speed * milesFactor) + " miles/h"
-            visibilityLabel.text = String(displayWeather.weather.visibility * milesFactor) + " miles"
+            windLabel.text = String(displayWeather.weather.wind.speed * milesFactor) + " " + NSLocalizedString("miles/h", comment: "")
+            visibilityLabel.text = String(displayWeather.weather.visibility * milesFactor) + " " + NSLocalizedString( "miles", comment: "")
             temparatureLabel.text = kelvin(temp: displayWeather.weather.main.temp)
         }
         
         
-        mistLabel.text = displayWeather.weather.weather.first?.main
+        mistLabel.text =  NSLocalizedString((displayWeather.weather.weather.first?.main)!, comment: "") 
         sunriseTimeLabel.text = intervalToTime(interval: displayWeather.weather.sys.sunrise!)
         sunsetTimeLabel.text = intervalToTime(interval: displayWeather.weather.sys.sunset!)
        

@@ -56,7 +56,7 @@ final class ForecastSectionController: ListSectionController, ListSupplementaryV
                                                                              at: index) as? ForecastHeaderView else {
                                                                                 fatalError()
         }
-        view.day = displayedForecast?.dayName
+        view.day = NSLocalizedString((displayedForecast?.dayName)!, comment: "").uppercased()
         return view
     }
     

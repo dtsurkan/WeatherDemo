@@ -5,3 +5,29 @@
   Created by Dima Tsurkan on 9/22/17.
   Copyright © 2017 Dima Tsurkan. All rights reserved.
 */
+
+"miles" = "мили";
+"miles/h" = "миль/ч";
+"m/s" = "м/с";
+"m" = "м";
+"Units" = "Единицы";
+"Metric" = "Метры";
+"Imperial" = "Имперский";
+"Language" = "Язык";
+"English" = "Английский";
+"Settings" = "Настройки";
+"Russian" = "Русский";
+
+"Sunday" = "Воскресенье";
+"Monday" = "Понедельник";
+"Tuesday" = "Вторник";
+"Wednesday" = "Среда";
+"Thursday" = "Четверг";
+"Friday" = "Пятница";
+"Saturday" = "Суббота";
+
+"Select language" = "Выберите язык";
+
+"Rain" = "Дождь";
+"Snow" = "Снег";
+"Extreme" = "Экстремальный";
