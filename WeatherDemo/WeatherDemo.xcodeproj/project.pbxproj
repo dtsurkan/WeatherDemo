@@ -42,6 +42,7 @@
 		94BAE7DC1F7507FD0034D202 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BAE7DB1F7507FD0034D202 /* Helpers.swift */; };
 		94BAE7E01F7535BF0034D202 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BAE7DF1F7535BF0034D202 /* AppSettings.swift */; };
 		94BAE7E21F7537550034D202 /* SwiftExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BAE7E11F7537550034D202 /* SwiftExtentions.swift */; };
+		94BAE7E71F7540280034D202 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94BAE7E91F7540280034D202 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,10 @@
 		94BAE7DB1F7507FD0034D202 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		94BAE7DF1F7535BF0034D202 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		94BAE7E11F7537550034D202 /* SwiftExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftExtentions.swift; sourceTree = "<group>"; };
+		94BAE7E31F753F910034D202 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		94BAE7E41F753F920034D202 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		94BAE7E81F7540280034D202 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		94BAE7EA1F75402A0034D202 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9D727945D06F054E490548D3 /* Pods-WeatherDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherDemo/Pods-WeatherDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -205,6 +210,7 @@
 				94A2C4471F73ABAC003450CA /* LaunchScreen.storyboard */,
 				94A2C4491F73ABAC003450CA /* Main.storyboard */,
 				94A2C44B1F73ABAC003450CA /* Info.plist */,
+				94BAE7E91F7540280034D202 /* Localizable.strings */,
 			);
 			path = Bundle;
 			sourceTree = "<group>";
@@ -331,6 +337,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 94A2C4251F73AB28003450CA;
 			productRefGroup = 94A2C42F1F73AB29003450CA /* Products */;
@@ -348,6 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94A2C4501F73ABAC003450CA /* Info.plist in Resources */,
+				94BAE7E71F7540280034D202 /* Localizable.strings in Resources */,
 				9421001A1F73F64B0009FBFA /* ForecastHeaderView.xib in Resources */,
 				94A2C44F1F73ABAC003450CA /* Main.storyboard in Resources */,
 				94A2C44D1F73ABAC003450CA /* Assets.xcassets in Resources */,
@@ -469,6 +477,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				94A2C4481F73ABAC003450CA /* Base */,
+				94BAE7E31F753F910034D202 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -477,8 +486,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				94A2C44A1F73ABAC003450CA /* Base */,
+				94BAE7E41F753F920034D202 /* ru */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		94BAE7E91F7540280034D202 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				94BAE7E81F7540280034D202 /* en */,
+				94BAE7EA1F75402A0034D202 /* ru */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -488,6 +507,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -545,6 +565,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

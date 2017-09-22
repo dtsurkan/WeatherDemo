@@ -18,6 +18,13 @@ func kelvinToCelsious(temp: Float?) -> String {
     return "0"
 }
 
+func kelvin(temp: Float?) -> String {
+    if let temp = temp {
+        return String(format: "%.0f F", temp)
+    }
+    return "0"
+}
+
 func intervalToTime(interval: Int) -> String {
     let date = Date(timeIntervalSince1970: TimeInterval(interval))
     let dayTimePeriodFormatter = DateFormatter()

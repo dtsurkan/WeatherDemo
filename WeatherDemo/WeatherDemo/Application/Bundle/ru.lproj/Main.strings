@@ -1,0 +1,33 @@
+
+/* Class = "UILabel"; text = "Sunrise:"; ObjectID = "3lr-cD-KSc"; */
+"3lr-cD-KSc.text" = "Рассвет:";
+
+/* Class = "UILabel"; text = " "; ObjectID = "7kv-5u-o3S"; */
+"7kv-5u-o3S.text" = " ";
+
+/* Class = "UIBarButtonItem"; title = "Settings"; ObjectID = "AE9-tA-Ikr"; */
+"AE9-tA-Ikr.title" = "Настройки";
+
+/* Class = "UILabel"; text = " "; ObjectID = "Fj2-kj-S4E"; */
+"Fj2-kj-S4E.text" = " ";
+
+/* Class = "UILabel"; text = "Visibility:"; ObjectID = "IZc-xS-vRQ"; */
+"IZc-xS-vRQ.text" = "Видимость:";
+
+/* Class = "UILabel"; text = " "; ObjectID = "PJC-CK-aFz"; */
+"PJC-CK-aFz.text" = " ";
+
+/* Class = "UILabel"; text = "Sunset:"; ObjectID = "dgx-UV-Gh2"; */
+"dgx-UV-Gh2.text" = "Закат:";
+
+/* Class = "UILabel"; text = " "; ObjectID = "fIJ-d0-dcd"; */
+"fIJ-d0-dcd.text" = " ";
+
+/* Class = "UILabel"; text = " "; ObjectID = "gbQ-HN-7ig"; */
+"gbQ-HN-7ig.text" = " ";
+
+/* Class = "UILabel"; text = " "; ObjectID = "lVc-AT-OAt"; */
+"lVc-AT-OAt.text" = " ";
+
+/* Class = "UILabel"; text = "Wind:"; ObjectID = "lmu-yS-O5P"; */
+"lmu-yS-O5P.text" = "Ветер:";

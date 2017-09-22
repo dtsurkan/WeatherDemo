@@ -28,12 +28,14 @@ class HeaderView: UIView {
         if !appSettings.isImperialUnit {
             windLabel.text = String(displayWeather.weather.wind.speed) + " m/s"
             visibilityLabel.text = String(displayWeather.weather.visibility) + " m"
+            temparatureLabel.text = kelvinToCelsious(temp: displayWeather.weather.main.temp)
         } else {
             windLabel.text = String(displayWeather.weather.wind.speed * milesFactor) + " miles/h"
             visibilityLabel.text = String(displayWeather.weather.visibility * milesFactor) + " miles"
+            temparatureLabel.text = kelvin(temp: displayWeather.weather.main.temp)
         }
         
-        temparatureLabel.text = kelvinToCelsious(temp: displayWeather.weather.main.temp)
+        
         mistLabel.text = displayWeather.weather.weather.first?.main
         sunriseTimeLabel.text = intervalToTime(interval: displayWeather.weather.sys.sunrise!)
         sunsetTimeLabel.text = intervalToTime(interval: displayWeather.weather.sys.sunset!)

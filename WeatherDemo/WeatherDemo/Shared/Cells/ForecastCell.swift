@@ -77,7 +77,13 @@ final class ForecastCell: UICollectionViewCell {
     func fillWithForecastItem(item: ForecastItem?) {
         let imageURL = URL(string: openWeatherIconURL+(item?.weather.first?.icon)! + ".png" )
         cloudsImageView.pin_setImage(from: imageURL)
-        weatherData.text = (item?.weather.first?.main)! + " " + kelvinToCelsious(temp: item?.main.temp)
         time.text = item?.time
+        let appSettings = AppSettings()
+        if !appSettings.isImperialUnit {
+            weatherData.text = (item?.weather.first?.main)! + " " + kelvinToCelsious(temp: item?.main.temp)
+        } else {
+            weatherData.text = (item?.weather.first?.main)! + " " + kelvin(temp: item?.main.temp)
+        }
+        
     }
 }
