@@ -77,7 +77,7 @@ class MainViewController: UIViewController, MainDisplayLogic {
         super.viewWillAppear(animated)
         if displayedCurrentWeather != nil {
             updateCurrentWeather()
-            self.adapter.performUpdates(animated: true)
+            adapter.reloadData(completion: nil)
         }
     }
     
