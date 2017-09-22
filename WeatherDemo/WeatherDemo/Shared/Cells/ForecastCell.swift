@@ -16,6 +16,34 @@ final class ForecastCell: UICollectionViewCell {
         return layer
     }()
     
+    lazy var cloudsImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.frame = CGRect(x: 15, y: (self.contentView.bounds.size.height - 20) / 2, width: 30, height: 20)
+        self.contentView.addSubview(imageView)
+        return imageView
+    }()
+    
+    lazy var time: UILabel = {
+        let label = UILabel()
+        label.font = label.font.withSize(15)
+        label.textColor = .black
+        label.frame = CGRect(x: 60, y: (self.contentView.bounds.size.height - 30) / 2, width: 120, height: 30)
+        label.textAlignment = .left
+        self.contentView.addSubview(label)
+        return label
+    }()
+    
+    lazy var weatherData: UILabel = {
+        let label = UILabel()
+        label.font = label.font.withSize(15)
+        label.textColor = UIColor(red: 111/255, green: 110/255, blue: 115/255, alpha: 1)
+        label.frame = CGRect(x: self.contentView.bounds.size.width/2, y: (self.contentView.bounds.size.height - 30) / 2, width: self.contentView.bounds.size.width/2 - 15, height: 30)
+        label.textAlignment = .right
+        self.contentView.addSubview(label)
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.layer.addSublayer(separator)
@@ -32,5 +60,14 @@ final class ForecastCell: UICollectionViewCell {
         let height: CGFloat = 0.5
         let left: CGFloat = 15.0
         separator.frame = CGRect(x: left, y: bounds.height - height, width: bounds.width - left, height: height)
+    }
+    
+    func fillWithForecastItem(item: ForecastItem?) {
+        cloudsImageView.image = UIImage(named: "Cloud.png")
+        time.text = "6:00 AM"
+        weatherData.text = "Clouds, 10 C"
+        // set cloudsImageView image
+        // set time
+        // set temp
     }
 }

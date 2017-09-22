@@ -37,7 +37,6 @@ class MainWorker {
                 } catch {
                     completionHandler(nil, error)
                 }
-                
             case let .failure(error):
                 completionHandler(nil, error)
             }
@@ -61,6 +60,8 @@ class MainWorker {
                 let data = moyaResponse.data
                 do {
                     let jsonDecoder = JSONDecoder()
+                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+                    print(json)
                     let forecast = try jsonDecoder.decode(ForecastModel.self, from: data)
                     completionHandler(forecast, nil)
                 } catch {

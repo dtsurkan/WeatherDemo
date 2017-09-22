@@ -23,13 +23,15 @@ final class ForecastSectionController: ListSectionController, ListSupplementaryV
     }
     
     override func sizeForItem(at index: Int) -> CGSize {
-        return CGSize(width: collectionContext!.containerSize.width, height: 55)
+        return CGSize(width: collectionContext!.containerSize.width, height: 38)
     }
     
     override func cellForItem(at index: Int) -> UICollectionViewCell {
         guard let cell = collectionContext?.dequeueReusableCell(of: ForecastCell.self, for: self, at: index) as? ForecastCell else {
             fatalError()
         }
+        // implement filling
+        cell.fillWithForecastItem(item: nil)
         return cell
     }
     
@@ -51,11 +53,11 @@ final class ForecastSectionController: ListSectionController, ListSupplementaryV
                                                                              at: index) as? ForecastHeaderView else {
                                                                                 fatalError()
         }
-        view.day = "Monday"
+        view.day = "Monday".uppercased()
         return view
     }
     
     func sizeForSupplementaryView(ofKind elementKind: String, at index: Int) -> CGSize {
-        return CGSize(width: collectionContext!.containerSize.width, height: 40)
+        return CGSize(width: collectionContext!.containerSize.width, height: 50)
     }
 }

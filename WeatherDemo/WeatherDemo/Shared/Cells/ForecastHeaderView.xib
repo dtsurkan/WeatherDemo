@@ -19,17 +19,18 @@
                 <rect key="frame" x="0.0" y="0.0" width="321" height="50"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fdf-0P-vTZ">
-                        <rect key="frame" x="15" y="14.5" width="291" height="21"/>
-                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                        <nil key="textColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MONDAY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fdf-0P-vTZ">
+                        <rect key="frame" x="19" y="27" width="287" height="17"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                        <color key="textColor" red="0.43529411759999997" green="0.43137254899999999" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
             </view>
+            <color key="backgroundColor" red="0.94117647059999998" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="Fdf-0P-vTZ" firstAttribute="centerY" secondItem="vL8-R5-PRq" secondAttribute="centerY" id="05l-sn-EFd"/>
-                <constraint firstItem="Fdf-0P-vTZ" firstAttribute="leading" secondItem="vL8-R5-PRq" secondAttribute="leading" constant="15" id="5qO-ss-yBw"/>
+                <constraint firstItem="Fdf-0P-vTZ" firstAttribute="leading" secondItem="vL8-R5-PRq" secondAttribute="leading" constant="19" id="5qO-ss-yBw"/>
+                <constraint firstAttribute="bottom" secondItem="Fdf-0P-vTZ" secondAttribute="bottom" constant="6" id="IhZ-pW-Aw8"/>
                 <constraint firstAttribute="trailing" secondItem="Fdf-0P-vTZ" secondAttribute="trailing" constant="15" id="uPi-IT-u0G"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="OQP-Xl-BU9"/>

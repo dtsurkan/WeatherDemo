@@ -35,8 +35,7 @@ struct Weather: Decodable {
     var id: Int?
     var main: String?
     var description: String?
-    var icon: String?
-//    var iconURL: String = "http://openweathermap.org/img/w"
+    var icon: String?    
 }
 
 struct WeatherMain: Decodable {

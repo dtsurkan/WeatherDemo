@@ -32,7 +32,7 @@ class MainViewController: UIViewController, MainDisplayLogic {
     // MARK: - Outlets
     
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var headerView: HeaderView!
 
     // MARK: Object lifecycle
   
@@ -87,6 +87,7 @@ class MainViewController: UIViewController, MainDisplayLogic {
   
     private func updateCurrentWeather() {
         navigationItem.title = displayedCurrentWeather?.weather.name
+        headerView.fillIn(displayWeather: displayedCurrentWeather!)
     }
     
     
