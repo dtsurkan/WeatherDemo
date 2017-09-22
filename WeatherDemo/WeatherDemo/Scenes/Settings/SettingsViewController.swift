@@ -20,6 +20,8 @@ class SettingsViewController: UIViewController, SettingsDisplayLogic {
     var interactor: SettingsBusinessLogic?
     var router: (NSObjectProtocol & SettingsRoutingLogic & SettingsDataPassing)?
 
+    let tableView = UITableView()
+    
     // MARK: Object lifecycle
   
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -63,16 +65,30 @@ class SettingsViewController: UIViewController, SettingsDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
+        configureTable()
     }
     
     // MARK: - Internal
     
     private func configureView() {
         navigationItem.title = "Settings"
-        view.backgroundColor = .lightGray
+        view.backgroundColor = UIColor(red: 240/255, green: 239/255, blue: 244/255, alpha: 1)
     }
-  
+    
+    private func configureTable() {
+        tableView.frame = view.bounds
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.backgroundColor = .clear
+        tableView.register(SettingsUnitsCell.self, forCellReuseIdentifier: "SettingsUnitsCell")
+        self.view.addSubview(tableView)
+    }
+
     // MARK: Do something
+    
+    func showLanguagesList() {
+        router?.routeToLanguages()
+    }
   
     //@IBOutlet weak var nameTextField: UITextField!
   
@@ -84,4 +100,74 @@ class SettingsViewController: UIViewController, SettingsDisplayLogic {
     func displaySomething(viewModel: Settings.Something.ViewModel) {
         //nameTextField.text = viewModel.name
     }
+}
+
+extension SettingsViewController: SettingsUnitsCellDelegate {
+    
+    @objc func segmentDidChange(segment: UISegmentedControl) {
+        
+    }
+    
+}
+
+extension SettingsViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            showLanguagesList()
+        }
+    }
+    
+}
+
+extension SettingsViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsUnitsCell", for: indexPath) as! SettingsUnitsCell
+            cell.fillWithDelegate(delegate: self)
+            return cell
+        } else if indexPath.section == 1 {
+            let cell = UITableViewCell()
+            cell.accessoryType = .disclosureIndicator
+            cell.selectionStyle = .none
+            cell.textLabel?.text = "English"
+            return cell
+        }
+        
+        return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 50)
+        view.backgroundColor = UIColor(red: 240/255, green: 239/255, blue: 244/255, alpha: 1)
+        let label = UILabel(frame: CGRect(x: 15, y: 27, width: 200, height: 17))
+        label.textColor = UIColor(red: 111/255, green: 110/255, blue: 115/255, alpha: 1)
+        label.font = label.font.withSize(14)
+        label.text = section == 0 ? "UNITS" : "LANGUAGE"
+        view.addSubview(label)
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView(frame: .zero)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 1
+    }
+    
 }
