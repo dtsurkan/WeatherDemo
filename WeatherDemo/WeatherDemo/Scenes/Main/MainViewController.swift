@@ -66,11 +66,19 @@ class MainViewController: UIViewController, MainDisplayLogic {
   
   
     // MARK: View lifecycle
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
   
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
         LocationService.shared.delegate = self
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.localizeUI),
+                                               name: NSNotification.Name(rawValue:DynamicLanguageServiceDidDetectLanguageSwitchNotificationKey),
+                                               object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -88,6 +96,7 @@ class MainViewController: UIViewController, MainDisplayLogic {
     // MARK: - Internal
     
     private func configureView() {
+        navigationItem.rightBarButtonItem?.title = dynamicLocalizableString("Settings")
         configureCollectionView()
         configureRefreshControl()
     }
@@ -98,11 +107,8 @@ class MainViewController: UIViewController, MainDisplayLogic {
     }
     
     private func configureRefreshControl() {
-        if #available(iOS 10.0, *) {
-            collectionView.refreshControl = refreshControl
-        } else {
-            collectionView.addSubview(refreshControl)
-        }
+        if #available(iOS 10.0, *) { collectionView.refreshControl = refreshControl }
+        else { collectionView.addSubview(refreshControl) }
         refreshControl.addTarget(self, action: #selector(refreshData(sender:)), for: .valueChanged)
     }
   
@@ -186,5 +192,17 @@ extension MainViewController: LocationServiceDelegate {
             self.fetchForecast(location: location)
         }
     }
+
+}
+
+// MARK: - Localizable
+extension MainViewController: Localizable {
     
+    @objc func localizeUI() {
+        navigationItem.rightBarButtonItem?.title = dynamicLocalizableString("Settings")
+        if displayedCurrentWeather != nil {
+            updateCurrentWeather()
+            adapter.reloadData(completion: nil)
+        }
+    }
 }

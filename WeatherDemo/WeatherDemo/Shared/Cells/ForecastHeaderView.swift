@@ -21,4 +21,31 @@ final class ForecastHeaderView: UICollectionViewCell {
         }
     }
     
+    // MARK: - Init/Deinit
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.localizeUI),
+                                               name: NSNotification.Name(rawValue:DynamicLanguageServiceDidDetectLanguageSwitchNotificationKey),
+                                               object: nil)
+    }
+    
+}
+
+// MARK: - Localizable
+extension ForecastHeaderView: Localizable {
+    
+    @objc func localizeUI() {
+        dayLabel.text = dynamicLocalizableString(dayLabel.text!.lowercased()).uppercased()
+    }
 }

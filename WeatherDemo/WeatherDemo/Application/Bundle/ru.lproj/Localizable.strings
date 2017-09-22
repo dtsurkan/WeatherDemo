@@ -18,16 +18,23 @@
 "Settings" = "Настройки";
 "Russian" = "Русский";
 
-"Sunday" = "Воскресенье";
-"Monday" = "Понедельник";
-"Tuesday" = "Вторник";
-"Wednesday" = "Среда";
-"Thursday" = "Четверг";
-"Friday" = "Пятница";
-"Saturday" = "Суббота";
+"sunday" = "Воскресенье";
+"monday" = "Понедельник";
+"tuesday" = "Вторник";
+"wednesday" = "Среда";
+"thursday" = "Четверг";
+"friday" = "Пятница";
+"saturday" = "Суббота";
 
 "Select language" = "Выберите язык";
 
+"Clouds" = "Облака";
 "Rain" = "Дождь";
 "Snow" = "Снег";
 "Extreme" = "Экстремальный";
+
+
+"Sunrise:" = "Рассвет:";
+"Visibility:" = "Видимость:";
+"Sunset:" = "Закат:";
+"Wind:" = "Ветер:";

@@ -118,11 +118,15 @@
                                 <connections>
                                     <outlet property="imageView" destination="dIs-7s-IGo" id="wmX-OZ-qL7"/>
                                     <outlet property="mistLabel" destination="lVc-AT-OAt" id="XM3-Mc-zdm"/>
+                                    <outlet property="sunriseLabel" destination="3lr-cD-KSc" id="jKi-4q-yRm"/>
                                     <outlet property="sunriseTimeLabel" destination="PJC-CK-aFz" id="KUX-sH-q0U"/>
+                                    <outlet property="sunsetLabel" destination="dgx-UV-Gh2" id="4CK-Fx-Qc7"/>
                                     <outlet property="sunsetTimeLabel" destination="Fj2-kj-S4E" id="Aim-pp-RxX"/>
                                     <outlet property="temparatureLabel" destination="gbQ-HN-7ig" id="PsX-Vj-w83"/>
                                     <outlet property="visibilityLabel" destination="fIJ-d0-dcd" id="LVx-Hu-Iq8"/>
+                                    <outlet property="visibilityTitleLabel" destination="IZc-xS-vRQ" id="VeN-7n-9fz"/>
                                     <outlet property="windLabel" destination="7kv-5u-o3S" id="YBD-wG-eOB"/>
+                                    <outlet property="windTitleLabel" destination="lmu-yS-O5P" id="ylu-wb-D06"/>
                                 </connections>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="31r-EK-lco">
